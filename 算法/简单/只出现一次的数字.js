@@ -1,22 +1,8 @@
-// 输入: [4,1,2,1,2]
-// 输出: 4
-
-const singleNumber = function(nums) {
-    // let temp = {}
-    // for(let i = 0; i < nums.length; i++) {
-    //     let cur = nums[i]
-    //     if(temp[cur] === undefined) {
-    //         temp[cur] = 1
-    //     } else {
-    //         temp[cur] += 1
-    //     }
-    // }
-    // for(let m in temp) {
-        
-    //     if(temp[m] === 1) {
-    //         return m
-    //     }
-    // }
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var singleNumber = function(nums) {
     let _set = new Set()
     for(let i = 0; i < nums.length; i++) {
         if(!_set.has(nums[i])) {
@@ -28,4 +14,26 @@ const singleNumber = function(nums) {
     return Array.from(_set)[0]
 };
 
+/** 
+const singleNumber = function(nums) {
+    let temp = {}
+    for(let i = 0; i < nums.length; i++) {
+        let cur = nums[i]
+        if(temp[cur] === undefined) {
+            temp[cur] = 1
+        } else {
+            temp[cur] += 1
+        }
+    }
+    for(let m in temp) {
+        
+        if(temp[m] === 1) {
+            return m
+        }
+    }
+};
+*/
+
+// 输入: [4,1,2,1,2]
+// 输出: 4
 console.log(singleNumber([1, 2, 1]))

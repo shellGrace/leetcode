@@ -1,7 +1,8 @@
-// 输入: prices = [7,1,5,3,6,4]
-// 输出: 7
-
-const maxProfit = function(prices) {
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+ var maxProfit = function(prices) {
     if(prices.length < 2) return 0
     let total = 0
     let index = 0
@@ -15,4 +16,6 @@ const maxProfit = function(prices) {
     return total
 };
 
+// 输入: prices = [7,1,5,3,6,4]
+// 输出: 7
 console.log('maxProfit', maxProfit([7,1,5,3,6,4]))
