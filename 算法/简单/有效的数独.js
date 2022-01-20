@@ -39,8 +39,9 @@ var isValidSudoku = function(board) {
     let blocks = lineBlocks * lineBlocks  // 一共9个小方块
     for(let i = 0; i < blocks; i++) {  // 确保拿到九个方块
         // 获取每个小方块定点坐标
-        let x = parseInt(i / 3) * 3
-        let y = (i % 3) * 3
+        let x = parseInt(i / 3) * 3   // x 每一行保持不变
+        let y = (i % 3) * 3  // y 依次加一（小方块内）
+        console.log(x, y)
         let blockArr = []
         for(let i = x; i < x + lineBlocks; i++) {  // 确保拿到九个方块
             for(let j = y; j < y + lineBlocks; j++) {  // 确保拿到九个方块
