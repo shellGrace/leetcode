@@ -3,25 +3,31 @@
  * @return {string}
  */
  var countAndSay = function(n) {
-    let str = '1'
-    for (let i = 1; i < n; i++) {
-        const arr = [];  // 存储结果
-        let start = 0;
-        let pos = 0;  // 每次循环进行重置
-        console.log(n, str)
-        while (pos < str.length) {
-            while (str[pos] === str[start]) {
-                pos++   // 相等则指针后移
+    if(n === 1) return '1'  // 递归出口
+    let str = countAndSay(n-1) // 存储上一次得到的值
+    // console.log('str', str);
+    let arr = []  // 存储结果
+    let start = 0 // 每次循环的开始下标值
+    let count = 1  // 记录每次循环得到的计数
+    let index = 1  // 移动的下标 实时找到下一次需要判断的数字 如 1112 中的 2
+    // 基于上一次的值来进行处理
+    for(let i = 0; i < str.length; i++) {
+        // console.log('i---', i, index, str);
+        while(index < str.length + 1) {
+            // console.log('while--', i);
+            if(str[start] === str[index + i]) {
+                count++
+                index++
+                continue  // 计数、移动下标 完成 跳出本次while循环 继续下一轮判断
             }
-            console.log(start, pos);
-            const count = pos - start
-            arr.push(String(count) + str[start])
-            start = pos  // 下一次开始位置
+            // 若不等
+            arr.push(count + str[start])
+            // console.log(arr);
+            count = 0  // 计数清 0
+            start = index
         }
-        str = arr.join('');
     }
-    console.log(str);
-    return str;
+    return arr.join('')
 };
 
 countAndSay(4)
