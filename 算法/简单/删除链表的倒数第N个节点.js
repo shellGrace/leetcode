@@ -26,6 +26,6 @@
         pre = pre.next
     }
     // 前一个指向节点后一个 删除
-    pre.next = pre.next.next
+    pre.next = pre.next.next  // 当删除最后一个时 pre.next.next 为 null
     return head
 };
