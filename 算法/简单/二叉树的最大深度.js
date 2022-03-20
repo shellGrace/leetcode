@@ -10,12 +10,37 @@
  * @param {TreeNode} root
  * @return {number}
  */
- var maxDepth = function(root) {
+var maxDepth = function(root) {
     if(root === null) {
         return 0
     }
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };
+
+// 深度遍历 DFS
+var maxDepth = function(root) {
+    if(root === null) {
+        return 0
+    }
+    const queue = []   // 定义一个队列--先进先出
+    let deep = 0   // 记录深度
+    queue.push(root)  // 将根节点放入队列
+    while(queue.length !== 0) {
+        deep++  // 深度每次加一
+        // 遍历确保每层节点不被重复计数
+        for(let i = 0; i < queue.length; i++) {
+            const node = queue.shift()  // 获取节点
+            if(node.left) {
+                queue.push(node.left)
+            }
+            if(node.right) {
+                queue.push(node.right)
+            }
+        }
+    }
+    return deep
+};
+
 
 // 广度 BFS --用队列实现
 // 深度 DFS --用栈实现
