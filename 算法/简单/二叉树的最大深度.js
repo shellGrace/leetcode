@@ -17,7 +17,7 @@ var maxDepth = function(root) {
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };
 
-// 深度遍历 DFS
+// 广度遍历 BFS
 var maxDepth = function(root) {
     if(root === null) {
         return 0
