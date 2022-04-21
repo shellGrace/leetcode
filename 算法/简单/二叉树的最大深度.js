@@ -27,7 +27,7 @@ var maxDepth = function(root) {
     queue.push(root)  // 将根节点放入队列
     while(queue.length !== 0) {
         deep++  // 深度每次加一
-        // 遍历确保每层节点不被重复计数
+        // 遍历确保每层节点不被遗漏子节点计数
         for(let i = 0; i < queue.length; i++) {
             const node = queue.shift()  // 获取节点
             if(node.left) {
