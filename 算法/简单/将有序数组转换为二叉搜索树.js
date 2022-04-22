@@ -20,7 +20,7 @@
     }
 
     const childToBST = function(nums, start, end) {
-        if(start > end) return null
+        if(start > end) return null  // 边界情况
         let mid = Math.floor((start + end) / 2)  // 确定根节点
         let node = new TreeNode(nums[mid]) // 数组转树，需要 new TreeNode
         node.left = childToBST(nums, start, mid - 1)
