@@ -3,17 +3,16 @@
  * @return {string[]}
  */
  var fizzBuzz = function(n) {
-    let answer = new Array(n)
-    for(let i = 0; i < n; i++) {
-        let index = i + 1
-        if(index % 3 === 0 && index % 5 === 0) {
-          answer[i] = "FizzBuzz"
-        } else if(index % 3 === 0) {
-            answer[i] = "Fizz"
-        } else if(index % 5 === 0) {
-            answer[i] = "Buzz"
+    let answer = []
+    for(let i = 1; i <= n; i++) {
+        if(i % 3 === 0 && i % 5 === 0) {
+          answer.push("FizzBuzz")
+        } else if(i % 3 === 0) {
+            answer.push("Fizz")
+        } else if(i % 5 === 0) {
+            answer.push("Buzz")
         } else {
-            answer[i] = String(index)
+            answer.push(String(i))
         }
     }
     return answer
