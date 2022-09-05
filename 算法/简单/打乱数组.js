@@ -16,7 +16,7 @@ Solution.prototype.reset = function() {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
-    let nums = this.nums
+    let nums = [...this.nums]
     let arr = []
     let n = nums.length
     while(n > 0) {
@@ -58,6 +58,7 @@ Solution.prototype.shuffle = function() {
 
 // 洗牌算法
 var shuffle = function(nums) {
+    if(nums === null) return nums
     let arr = []
     let n = nums.length
     while(n > 0) {
@@ -69,4 +70,4 @@ var shuffle = function(nums) {
     return arr
 }
 
-console.log('shuffle', shuffle([1, 3, 5]));
+console.log('shuffle', shuffle(null));
