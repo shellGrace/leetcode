@@ -5,6 +5,7 @@
  var hammingWeight = function(n) {
     let count = 0
     for(let i = 0; i < 32; i++){
+        // n 右移，&1 取最后一位
         if (((n >>> i) & 1) == 1) {
             count++
         }
