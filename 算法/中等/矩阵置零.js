@@ -4,10 +4,8 @@
  */
  var setZeroes = function(matrix) {
     const setZeroAll = (mat, x, indexs) => {
+        mat[x] = new Array(mat[x].length).fill(0)
         for(let i = 0; i < mat.length; i++) {
-            if(i === Number(x)) {
-                mat[i] = new Array(mat[i].length).fill(0)
-            }
             let cur = mat[i]
             for(let i = 0; i < cur.length; i++) {
                 if(indexs.includes(i)) {
