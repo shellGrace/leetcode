@@ -49,8 +49,5 @@
     }
     return result
 };
-[
-    -2, -1, -1, 1,
-     1,  2,  2
-  ]
+
 console.log('fourSum', fourSum([-2,-1,-1,1,1,2,2], 0));
