@@ -29,6 +29,7 @@
                 if(sum === target) {
                     result.push([nums[a], nums[b], nums[c], nums[d]])
                     // 避免重复的四元组
+                    // 此循环内，a b固定的情况。如果c或d相等，一定会造成重复四元组
                     while (c < d && nums[c] === nums[c + 1]) {
                         c = c + 1
                     }
@@ -48,5 +49,8 @@
     }
     return result
 };
-
+[
+    -2, -1, -1, 1,
+     1,  2,  2
+  ]
 console.log('fourSum', fourSum([-2,-1,-1,1,1,2,2], 0));
