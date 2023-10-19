@@ -26,23 +26,19 @@ const binarySearch = (arr, target) => {
 console.log( binarySearch(arr, 10) );
 
 // 非递归版
-/** 
-int binary_search(const int arr[], int start, int end, int key) {
-  int ret = -1;       // 未搜索到数据返回-1下标
-  
-int mid;
-while (start <= end) {
-  mid = start + (end - start) / 2; //直接平均可能會溢位，所以用此算法
-  if (arr[mid] < key)
-    start = mid + 1;
-  else if (arr[mid] > key)
-    end = mid - 1;
-  else {            // 最後檢測相等是因為多數搜尋狀況不是大於要不就小於
-    ret = mid;  
-          break;
-      }
-}
-
-return ret;     // 单一出口
-}
-**/
+var binarySearch = (nums, target) => {
+  let start = 0;
+  let end = nums.length - 1;
+  let mid = 0;
+  while (start <= end) {
+    mid = start + Math.floor((end - start) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  return -1;
+};
