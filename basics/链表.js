@@ -1,6 +1,3 @@
-## 链表操作
-
-```javascript
 class Node {
     // 每一个节点，仅仅只包含 当前节点的值 和 当前节点的后驱节点值
     constructor(data) {
@@ -115,4 +112,3 @@ class Node {
   linkedList.print(); // 输出: 1 4 3
 
   console.log("Size:", linkedList.size()); // 输出: Size: 3
-```
