@@ -5,6 +5,11 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
+
+ function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+ }
 /**
  * @param {ListNode} list1
  * @param {ListNode} list2
@@ -38,3 +43,34 @@
  * 所以 prehead 没进行next操作, prev 对创建的链添加节点, 
  * 返回 链表头 第一个节点是创建的val = -1,所以实际链表头是: prehead.next
  */
+
+function arrayToListNode(arr) {
+    const m = new ListNode(arr[0])
+    let a = m;
+    for(let i = 1; i < arr.length; i++) {
+        a.next = new ListNode(arr[i])
+        a = a.next;
+    }
+    return m;
+}
+
+function listNodeToArray(head) {
+    const r = [];
+    let node = head;
+    while(node) {
+        r.push(node.val);
+        node = node.next;
+    }
+    return r;
+}
+
+function testListNode() {
+    var m1 = arrayToListNode([1, 3, 4, 6]);
+    var m2 = arrayToListNode([5, 6, 8, 10]);
+
+    const resultNode = mergeTwoLists(m1, m2);
+    const resultArray = listNodeToArray(resultNode);
+    console.log('resultArray: ', resultArray)
+}
+
+testListNode()
