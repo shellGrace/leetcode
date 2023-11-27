@@ -1,10 +1,4 @@
-const ListNode = (val, next) => {
-    // 链表结点
-    this.val = val === undefined ? 0 : val
-    this.next = next === undefined ? null : next
-}
-
-class ListNode2 {
+class ListNode {
     constructor(val, next) {    
         // 链表结点
         this.val = val === undefined ? 0 : val
@@ -33,3 +27,11 @@ const nodeToArr = (head) => {
     }
     return arr
 }
+
+// 测试用例
+const testCase = [1, 2, 3, 4, 5];
+const linkedList = arrToNode(testCase);
+console.log('linkedList: ', linkedList);
+
+const resultArray = nodeToArr(linkedList);
+console.log(resultArray);  // 应该输出 [1, 2, 3, 4, 5]
