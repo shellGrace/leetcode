@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=104 lang=javascript
+ *
+ * [104] 二叉树的最大深度
+ */
+
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -10,41 +17,35 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
-    if(root === null) {
-        return 0
+var maxDepth = function (root) {
+  if (!root) return 0;
+  let queue = [root];
+  let depth = 0;
+  // 保证每次拓展完的时候队列里存放的是当前层的所有节点
+  while (queue.length > 0) {
+    let len = queue.length;
+    while (len > 0) {
+      let cur = queue.shift();
+      cur.left && queue.push(cur.left);
+      cur.right && queue.push(cur.right);
+      len--;
     }
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    // 每处理完一层 层级+1
+    depth++;
+  }
+  return depth;
 };
+/******** 广度优先搜索 *******/ 
 
-// 广度遍历 BFS
-var maxDepth = function(root) {
-    if(root === null) {
-        return 0
-    }
-    const queue = []   // 定义一个队列--先进先出
-    let deep = 0   // 记录深度
-    queue.push(root)  // 将根节点放入队列
-    while(queue.length !== 0) {
-        deep++  // 深度每次加一
-        // 遍历确保每层节点不被遗漏子节点计数
-        for(let i = 0; i < queue.length; i++) {
-            const node = queue.shift()  // 获取节点
-            if(node.left) {
-                queue.push(node.left)
-            }
-            if(node.right) {
-                queue.push(node.right)
-            }
-        }
-    }
-    return deep
+var maxDepth0 = function (root) {
+  // 终止条件
+  if (!root) return 0; // 终止条件 + 返回值
+  // 左子树和右子树的最大深度 l 和 r，那么该二叉树的最大深度即为 max(l,r)+1
+  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
+/******** 深度优先搜索 *******/ 
 
+// @lc code=end
 
-// 广度 BFS --用队列实现
-// 深度 DFS --用栈实现
-// 递归解法 也属于深度 DFS
-
-// 二叉树的最大深度 max(l,r)+1 即 当前根节点加左右子树最大深度
-// 时间复杂度：O(n) 每个节点在递归中只被遍历一次
+let arr = [3, 9, 20, null, null, 15, 7];
+console.log(maxDepth(arrayToTree(arr)));
