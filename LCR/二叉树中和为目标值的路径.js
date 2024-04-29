@@ -6,7 +6,7 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-const { arrayToTree, treeToArray } = require('../basics/二叉树测试.js')
+ const { arrayToTree, treeToArray } = require('../basics/二叉树测试.js')
 /**
  * @param {TreeNode} root
  * @param {number} target
