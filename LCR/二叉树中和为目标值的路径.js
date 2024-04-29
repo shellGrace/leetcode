@@ -6,6 +6,7 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
+const { arrayToTree, treeToArray } = require('../basics/二叉树测试.js')
 /**
  * @param {TreeNode} root
  * @param {number} target
@@ -30,39 +31,6 @@ var recur = function (root, target, path, res) {
     recur(root.right, target - root.val, path, res)
     path.pop()
 };
-
-class TreeNode {
-  constructor(value) {
-    this.val = value;
-    this.left = null;
-    this.right = null;
-  }
-}
-
-function arrayToTree(array) {
-  if (!array.length) return null;
-
-  const root = new TreeNode(array[0]);
-  const queue = [root];
-
-  for (let i = 1; i < array.length; i++) {
-    const current = queue.shift();
-
-    if (array[i] !== null) {
-      current.left = new TreeNode(array[i]);
-      queue.push(current.left);
-    }
-
-    i++;
-
-    if (i < array.length && array[i] !== null) {
-      current.right = new TreeNode(array[i]);
-      queue.push(current.right);
-    }
-  }
-
-  return root;
-}
 
 let tree = arrayToTree([5,4,8,11,null,13,4,7,2,null,null,5,1])
 console.log(pathTarget(tree, 22));
