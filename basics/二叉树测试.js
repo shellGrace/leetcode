@@ -25,7 +25,7 @@ class TreeNode {
     this.right = null;
   }
 }
-  
+
 function arrayToTree(array) {
   if (!array.length) return null;
 
@@ -54,33 +54,35 @@ function arrayToTree(array) {
 // 树转测试数组
 function treeToArray(root) {
   if (!root) {
-      return [];
+    return [];
   }
   const result = [];
   const queue = [root];
   while (queue.length > 0) {
-      const node = queue.shift();
+    const node = queue.shift();
 
-      if (node === null) {
-          result.push(null);
-      } else {
-          result.push(node.val);
-          queue.push(node.left);
-          queue.push(node.right);
-      }
+    if (node === null) {
+      result.push(null);
+    } else {
+      result.push(node.val);
+      queue.push(node.left);
+      queue.push(node.right);
+    }
   }
   // 移除末尾的连续 null 值
   while (result.length > 0 && result[result.length - 1] === null) {
-      result.pop();
+    result.pop();
   }
   return result;
 }
 
 // 测试用例
 const inputArray = [1, null, 2, 3];
-const tree = arrayToTree(inputArray);
+// const tree = arrayToTree(inputArray);
 
-console.log(tree);  
+// console.log(tree);
 
-
-
+module.exports = {
+  arrayToTree,
+  treeToArray,
+};
