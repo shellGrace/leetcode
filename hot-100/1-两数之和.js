@@ -29,21 +29,20 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
+    const map = new Map()
+
     for(let i = 0; i < nums.length; i++) {
-        for(let j = 0; j < nums.length; j++) {
-            if(i === j) {
-                // 已存在目标元素 跳出本次循环 不做查找
-                continue
-            }
-            if(nums[i] + nums[j] === target) {
-                return [i, j]
-            }
-        }
+      const compareItem = target - nums[i]
+
+      if(map.has(compareItem)) {
+         return [map.get(compareItem), i]
+      }
+      map.set(nums[i], i)
     }
-    return undefined
+    return []
 };
 
-const result = twoSum([2,7,11,15], 9)
-console.log('result: ', result);
-// Continue 开始循环的一次新迭代
-// Break 立刻退出循环
+// 测试用例
+console.log(twoSum([2,7,11,15], 9)); // [0,1]
+console.log(twoSum([3,2,4], 6));     // [1,2]
+console.log(twoSum([3,3], 6));       // [0,1]
